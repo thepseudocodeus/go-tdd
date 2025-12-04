@@ -37,10 +37,20 @@ tasks:
     cmds:
       - go mod init github.com/thepseudocodeus/{{.CLI_ARGS}}
 
-  test:main:
+  test:hello:
     cmds:
       - go test
 
-  run:main:
+  run:hello:
     cmds:
-      - go run main.go
+      - go run hello.go
+
+  run:tests:
+    cmds:
+      - go test ./hello -v
+      - go test ./integers -v
+      - go test ./iteration -v
+
+  run:benchmarks:
+    cmds:
+      - go test -bench=. ./iteration
