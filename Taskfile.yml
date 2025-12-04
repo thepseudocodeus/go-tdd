@@ -1,0 +1,46 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    desc: Print task commands
+    cmds:
+      - task -a
+    silent: true
+
+  help:mod:
+    desc: Help with mod
+    cmds:
+      - go help mod
+      - go help mod init
+    summary: |
+      Displays help for the mod and init
+
+  setup:uv:
+    desc: Init UV for Python
+    cmds:
+      - uv init
+
+  add:go-lint:
+    desc: Install better golang lint library
+    cmds:
+      - brew install golangci-lint
+
+  add:go-pkg:
+    desc: Intall package documentation library
+    cmds:
+      - go install golang.org/x/pkgsite/cmd/pkgsite@latest
+
+  setup:go:
+    desc: Set up go development environment
+    cmds:
+      - go mod init github.com/thepseudocodeus/{{.CLI_ARGS}}
+
+  test:main:
+    cmds:
+      - go test
+
+  run:main:
+    cmds:
+      - go run main.go
