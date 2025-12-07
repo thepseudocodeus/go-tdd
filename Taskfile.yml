@@ -50,7 +50,12 @@ tasks:
       - go test ./hello -v
       - go test ./integers -v
       - go test ./iteration -v
+      - go test ./arrays -v
 
-  run:benchmarks:
+  test:bench:
     cmds:
       - go test -bench=. ./iteration
+
+  test:cover:
+    cmds:
+      - go test -cover ./arrays
